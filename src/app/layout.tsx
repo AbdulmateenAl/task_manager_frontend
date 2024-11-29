@@ -18,7 +18,7 @@ export default function RootLayout({
       <body>
         <div className="flex">
           <Navbar />
-          <div className="flex-1 px-8 py-2 w-full overflow-x-auto">
+          <div className="flex-1 w-full overflow-x-auto">
             {children}
           </div>
         </div>

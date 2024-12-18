@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <div className="h-[85vh] md:h-[97vh] w-[50px] sm:w-48 m-2 box-border">
+        <div className=" h-[85vh] md:h-[97vh] w-[50px] sm:w-48 m-2 box-border">
             <nav className="flex flex-col w-full h-full justify-between bg-white rounded-md text-gray-800 p-2">
                 <div className="flex flex-col items-start space-y-4 w-full h-full">
                     <Link className="flex flex-row gap-1 items-center" href="/">

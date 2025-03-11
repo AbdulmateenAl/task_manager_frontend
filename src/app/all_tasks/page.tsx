@@ -1,9 +1,15 @@
 "use client";
 
+import { useState } from "react";
+
+import Modal from "../components/Modal";
+
 import { FiEdit } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 
 export default function Alltasks() {
+	const [showModal, setShowModal] = useState(false);
+	
     const status:string = "complete";
     const statusColor:string = "green";
 	return (
@@ -114,8 +120,15 @@ export default function Alltasks() {
 							</div>
 						</div>
 					</div>
+					<div onClick={() => setShowModal(true)} className="border-2 border-dashed border-gray-300 rounded-lg w-48 h-40 flex items-center justify-center cursor-pointer">
+						<h2>+ Create new task</h2>
+					</div>
 				</div>
 			</div>
+			{/* Modal COmponent */}
+			<Modal show={showModal} onClose={setShowModal}>
+				<div>Hello</div>
+			</Modal>
 		</div>
 	);
 }

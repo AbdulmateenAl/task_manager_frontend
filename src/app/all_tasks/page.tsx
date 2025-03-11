@@ -14,7 +14,7 @@ export default function Alltasks() {
     const statusColor:string = "green";
 	return (
 		<div>
-			<div className="bg-white rounded-lg w-auto h-[95vh] md:h-[97vh] m-2 overflow-y-auto">
+			<div className="bg-gray-700 rounded-lg w-auto h-[95vh] md:h-[97vh] m-2 overflow-y-auto">
 				<div className="flex flex-wrap items-center justify-center md:justify-normal gap-x-10 w-full gap-y-10 p-3">
 					<div className="flex flex-col justify-between bg-blue-200 rounded-md w-48 h-40 px-2 py-1">
 						<div>

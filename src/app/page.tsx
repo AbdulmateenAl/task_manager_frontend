@@ -78,7 +78,7 @@ export default function Home() {
 
 	return (
 		<div className="">
-			<div className="bg-white rounded-lg w-auto h-[95vh] md:h-[97vh] m-2 overflow-y-auto p-2">
+			<div className="bg-gray-700 rounded-lg w-auto h-[95vh] md:h-[97vh] m-2 overflow-y-auto p-2">
 				<div className="flex flex-row items-center justify-between mt-0">
 					<div className="flex flex-row items-center gap-2 justify-center">
 						<BsFillCalendarCheckFill className="text-2xl" />

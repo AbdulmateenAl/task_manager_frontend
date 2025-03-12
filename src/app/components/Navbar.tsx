@@ -29,7 +29,7 @@ const Navbar = () => {
 	return (
         <div className="h-[85vh] md:h-[97vh] w-[50px] sm:w-48 m-2 box-border">
             {/* Navigation bar */}
-			<nav className="flex flex-col w-full h-full justify-between bg-gray-700 rounded-md p-2">
+			<nav className="flex flex-col w-[60px] sm:w-48 h-[97vh] bg-gray-800 bg-opacity-90 rounded-md p-2 shadow-md">
 				<div className="flex flex-col items-start space-y-4 w-full h-full">
 					<Link className="flex flex-row gap-1 items-center" href="/">
 						<CgProfile className="text-2xl text-white" />
@@ -38,12 +38,12 @@ const Navbar = () => {
 						</h1>
 					</Link>
 
-					{/* Use map for menu items */}
+					{/* Using map for menu items */}
 					<ul className="text-sm">
 						{menuItems.map(({ href, label, icon }) => {
 							const isActive = pathname === href;
 							return (
-								<li key={href}>
+								<li key={href} className="transition hover:scale-105 hover:shadow-xl">
 									<Link
 										href={href}
 										className={`flex flex-row items-center gap-3 text-left hover:bg-gray-600 p-1 md:py-2 md:pl-2 md:pr-14 rounded-md cursor-pointer group hover:text-white ${isActive ? "bg-gray-600 text-white border-r-4 border-blue-500" : "hover:bg-gray-400 hover:text-white"}`}
@@ -66,7 +66,7 @@ const Navbar = () => {
 						<li>
 							<Link
 								href="/signout"
-								className={`flex flex-row items-center gap-2 hover:bg-gray-600 py-2 pl-2 pr-20 rounded-md group hover:text-white cursor-pointer ${pathname === "/signout" ? "bg-gray-600 text-white border-r-4 border-blue-500" : "hover:bg-gray-400 hover:text-white"}`}
+								className={`flex flex-row items-center gap-2 hover:bg-gray-600 py-2 pl-2 pr-20 rounded-md group hover:text-white cursor-pointer transition hover:scale-105 hover:shadow-xl ${pathname === "/signout" ? "bg-gray-600 text-white border-r-4 border-blue-500" : "hover:bg-gray-400 hover:text-white"}`}
 							>
 								<VscSignOut className={`${pathname === "/signout" ? "text-white" : ""}`}/>
 								<p className="group-hover:text-white font-medium hidden md:block">

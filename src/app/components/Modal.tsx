@@ -7,14 +7,12 @@ type ModalProps = {
   export default function Modal({ show, onClose, children }: ModalProps) {
     return (
       <div
-        className={`fixed inset-0 flex items-center justify-center z-10 transition-transform duration-300 ease-in-out ${
-          show ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`modal-view ${show ? "translate-x-0" : "-translate-x-full"}`}
       >
-        <div className="relative w-[350px] max-w-xl h-[80vh] bg-blue-500 rounded-2xl p-4">
+        <div className="relative text-gray-200 w-[400px] max-w-xl h-[80vh] rounded-lg p-4 shadow-xl border border-gray-700">
           <button
             onClick={() => onClose(false)}
-            className="absolute top-1 right-1 flex items-center justify-center w-6 h-6 rounded-full bg-white"
+            className="flex items-center justify-center w-6 h-6 absolute top-3 right-1 bg-gray-600 hover:bg-gray-500 text-white px-2 py-1 rounded-full"
           >
             X
           </button>

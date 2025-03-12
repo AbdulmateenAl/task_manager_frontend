@@ -7,3 +7,15 @@
     @apply bg-gray-800 text-black
   }
 }
+
+@layer utilities {
+  .btn-primary {
+    @apply text-white rounded-lg shadow-md
+  }
+  .task-cards {
+    @apply flex flex-col justify-between px-2 py-1 bg-gray-800 bg-opacity-90 text-white shadow-lg rounded-lg p-3 w-48 h-40 transition hover:scale-105 hover:shadow-xl
+  }
+  .modal-view{
+    @apply fixed inset-0 flex items-center justify-center z-10 bg-black bg-opacity-50
+  }
+}

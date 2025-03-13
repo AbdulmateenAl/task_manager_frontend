@@ -48,7 +48,7 @@ const Navbar = () => {
 										href={href}
 										className={`flex flex-row items-center gap-3 text-left hover:bg-gray-600 p-1 md:py-2 md:pl-2 md:pr-14 rounded-md cursor-pointer group hover:text-white ${isActive ? "bg-gray-600 text-white border-r-4 border-blue-500" : "hover:bg-gray-400 hover:text-white"}`}
 									>
-										<span className={`text-gray-800 group-hover:text-white ${isActive ? "text-white" : ""}`}>
+										<span className={`text-white group-hover:text-white ${isActive ? "text-white" : ""}`}>
 											{icon}
 										</span>
 										<p className="group-hover:text-white font-medium hidden md:block">

@@ -95,9 +95,36 @@ export default function Alltasks() {
 			</div>
 			{/* Modal COmponent */}
 			<Modal show={showModal} onClose={setShowModal}>
-				<div>Hello</div>
-				<button className="btn-primary bg-blue-600 hover:bg-blue-500 px-3 py-2">
-					Add Task
+				<div>
+					<h1 className="text-2xl font-bold">Create New Task</h1>
+					<div className="flex flex-col gap-4 mt-4">
+						<div className="flex flex-col gap-2">
+							<p>Title</p>
+							<input
+								type="text"
+								placeholder="e.g Play soccer"
+								className="border-2 border-gray-300 rounded-lg p-2 w-full"
+							/>
+						</div>
+						<div className="flex flex-col gap-2">
+							<p>Description</p>
+							<textarea
+								placeholder="e.g Remember to call friends and take your boot"
+								className="border-2 border-gray-300 rounded-lg p-2"
+							/>
+						</div>
+						<div className="flex flex-col gap-2">
+							<p>Due date</p>
+							<input
+								type="date"
+								placeholder="Task Date"
+								className="border-2 border-gray-300 rounded-lg p-2"
+							/>
+						</div>
+					</div>
+				</div>
+				<button className="btn-primary bg-blue-600 hover:bg-blue-500 px-3 py-2 right-3 bottom-3 absolute">
+					+ Create Task
 				</button>
 			</Modal>
 		</div>

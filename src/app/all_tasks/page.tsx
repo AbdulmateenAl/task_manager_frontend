@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import Modal from "../components/Modal";
 
@@ -9,9 +9,55 @@ import { MdDelete } from "react-icons/md";
 
 export default function Alltasks() {
 	const [showModal, setShowModal] = useState(false);
+	const [error, setError] = useState("");
+	interface Task {
+		title: string;
+		description?: string;
+		date: string;
+		status: string;
+		statusColor: string;
+	}
 
-	const status: string = "complete";
-	const statusColor: string = "green";
+	const [tasks, setTasks] = useState<Task[]>([]);
+
+	const titleRef = useRef<HTMLInputElement>(null);
+	const descriptionRef = useRef<HTMLTextAreaElement>(null);
+	const dateRef = useRef<HTMLInputElement>(null);
+
+	// const status: string = "complete";
+	// const statusColor: string = "green";
+
+	const createTask = (e) => {
+		e.preventDefault();
+
+		const title = titleRef.current?.value.trim();
+		const description = descriptionRef.current?.value.trim();
+		const date = dateRef.current?.value;
+
+		if (!title || !date) {
+			setError("This field is required");
+			return; // Stop execution if validation fails
+		}
+
+		setError(""); // Clear error if valid
+
+		const newTask = {
+			title,
+			description: description || "No description", // Handle empty description
+			date,
+			status: "incomplete",
+			statusColor: "red",
+		};
+
+		setTasks((prevTasks) => [...prevTasks, newTask]); //  Add task
+		setShowModal(false);
+		console.log(tasks);
+
+		// Clear input fields after adding task
+		titleRef.current.value = "";
+		descriptionRef.current.value = "";
+		dateRef.current.value = "";
+	};
 
 	const task_card = [
 		{
@@ -71,7 +117,9 @@ export default function Alltasks() {
 								<p className="text-sm">{task.date}</p>
 								<div className="flex flex-row justify-between w-full items-center">
 									<div
-										className={`flex items-center rounded-lg p-1 justify-center text-center w-20 mt-1 ${task.statusColor === "green" ? "bg-green-500" : "bg-red-500"}`}
+										className={`flex items-center rounded-lg p-1 justify-center text-center w-20 mt-1 ${
+											task.status === "complete" ? "bg-green-500" : "bg-red-500"
+										}`}
 									>
 										<p>
 											{task.status === "complete" ? "completed" : "incomplete"}
@@ -102,28 +150,35 @@ export default function Alltasks() {
 							<p>Title</p>
 							<input
 								type="text"
+								ref={titleRef}
 								placeholder="e.g Play soccer"
-								className="border-2 border-gray-300 rounded-lg p-2 w-full"
+								className="border-2 border-gray-300 rounded-lg p-2 text-black"
 							/>
+							{error && <p className="text-red-500">{error}</p>}
 						</div>
 						<div className="flex flex-col gap-2">
 							<p>Description</p>
 							<textarea
+								ref={descriptionRef}
 								placeholder="e.g Remember to call friends and take your boot"
-								className="border-2 border-gray-300 rounded-lg p-2"
+								className="border-2 border-gray-300 rounded-lg p-2 text-black"
 							/>
 						</div>
 						<div className="flex flex-col gap-2">
 							<p>Due date</p>
 							<input
 								type="date"
+								ref={dateRef}
 								placeholder="Task Date"
-								className="border-2 border-gray-300 rounded-lg p-2"
+								className="border-2 border-gray-300 rounded-lg p-2 text-black"
 							/>
 						</div>
 					</div>
 				</div>
-				<button className="btn-primary bg-blue-600 hover:bg-blue-500 px-3 py-2 right-3 bottom-3 absolute">
+				<button
+					className="btn-primary bg-blue-600 hover:bg-blue-500 px-3 py-2 right-3 bottom-3 absolute"
+					onClick={createTask}
+				>
 					+ Create Task
 				</button>
 			</Modal>

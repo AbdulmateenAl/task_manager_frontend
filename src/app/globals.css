@@ -24,4 +24,10 @@
   .modal-view{
     @apply fixed inset-0 flex items-center justify-center z-10 bg-black bg-opacity-50
   }
+  .modal-view input {
+    @apply border-2 border-gray-300 rounded-lg p-2 text-black
+  }
+  .modal-view text-area {
+    @apply border-2 border-gray-300 rounded-lg p-2 text-black
+  }
 }

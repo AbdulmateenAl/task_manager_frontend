@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import Modal from "../components/Modal";
 
@@ -47,13 +47,16 @@ export default function Alltasks() {
 
 		setTasks((prevTasks) => [...prevTasks, newTask]); //  Add task
 		setShowModal(false);
-		console.log(tasks);
-
+		
 		// Clear input fields after adding task
 		titleRef.current.value = "";
 		descriptionRef.current.value = "";
 		dateRef.current.value = "";
 	};
+	
+	useEffect(() => {
+		console.log(tasks);
+	}, [tasks]);
 
 	const task_card = [
 		{

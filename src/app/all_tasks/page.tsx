@@ -30,21 +30,17 @@ export default function Alltasks() {
 	const createTask = (e) => {
 		e.preventDefault();
 
-		const title = titleRef.current?.value.trim();
-		const description = descriptionRef.current?.value.trim();
-		const date = dateRef.current?.value;
-
-		if (!title || !date) {
+		if (!titleRef.current.value || !dateRef.current.value) {
 			setError("This field is required");
-			return; // Stop execution if validation fails
+			return;
 		}
 
 		setError(""); // Clear error if valid
 
 		const newTask = {
-			title,
-			description: description || "No description", // Handle empty description
-			date,
+			title: titleRef.current?.value.trim() || "Untitled Task", // Handle empty title
+			description: descriptionRef.current?.value.trim() || "No description", // Handle empty description
+			date: dateRef.current?.value || "No due date", // Handle empty date
 			status: "incomplete",
 			statusColor: "red",
 		};
@@ -172,6 +168,7 @@ export default function Alltasks() {
 								placeholder="Task Date"
 								className="border-2 border-gray-300 rounded-lg p-2 text-black"
 							/>
+							{error && <p className="text-red-500">{error}</p>}
 						</div>
 					</div>
 				</div>

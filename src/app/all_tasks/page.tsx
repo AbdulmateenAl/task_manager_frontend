@@ -47,13 +47,20 @@ export default function Alltasks() {
 
 		setTasks((prevTasks) => [...prevTasks, newTask]); //  Add task
 		setShowModal(false);
+
+		// setTasks((prevTasks) => {
+		// 	const updatedTask = [...prevTasks, newTask];
+		// 	//console.log(updatedTask)
+		// 	return updatedTask;
+		// }); //  Add task
+		// setShowModal(false);
 		
 		// Clear input fields after adding task
 		titleRef.current.value = "";
 		descriptionRef.current.value = "";
 		dateRef.current.value = "";
 	};
-	
+
 	useEffect(() => {
 		console.log(tasks);
 	}, [tasks]);

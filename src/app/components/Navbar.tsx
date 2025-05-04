@@ -29,7 +29,7 @@ const Navbar = () => {
 	return (
         <div className="h-[85vh] md:h-[97vh] w-[50px] sm:w-48 m-2 box-border">
             {/* Navigation bar */}
-			<nav className="flex flex-col w-[60px] sm:w-48 h-[97vh] bg-gray-800 bg-opacity-90 rounded-md p-2 shadow-md">
+			<nav className="flex flex-col w-[60px] sm:w-48 h-[97vh] bg-[#6C757D] bg-opacity-90 rounded-md p-2 shadow-md">
 				<div className="flex flex-col items-start space-y-4 w-full h-full">
 					<Link className="flex flex-row gap-1 items-center" href="/">
 						<CgProfile className="text-2xl text-white" />
@@ -65,12 +65,12 @@ const Navbar = () => {
 					<ul className="text-sm">
 						<li>
 							<Link
-								href="/signout"
-								className={`flex flex-row items-center gap-2 hover:bg-gray-600 py-2 pl-2 pr-20 rounded-md group hover:text-white cursor-pointer transition hover:scale-105 hover:shadow-xl ${pathname === "/signout" ? "bg-gray-600 text-white border-r-4 border-blue-500" : "hover:bg-gray-400 hover:text-white"}`}
+								href="/account"
+								className={`flex flex-row items-center gap-2 hover:bg-gray-600 py-2 pl-2 pr-20 rounded-md group hover:text-white cursor-pointer transition hover:scale-105 hover:shadow-xl ${pathname === "/account" ? "bg-gray-600 text-white border-r-4 border-blue-500" : "hover:bg-gray-400 hover:text-white"}`}
 							>
-								<VscSignOut className={`${pathname === "/signout" ? "text-white" : ""}`}/>
+								<VscSignOut className={`${pathname === "/account" ? "text-white" : ""}`}/>
 								<p className="group-hover:text-white font-medium hidden md:block">
-									Sign Out
+									Account
 								</p>
 							</Link>
 						</li>

@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="font-inter">
       <body>
-        <div className="min-h-screen bg-[#121212] text-gray-200 flex">
+        <div className="min-h-screen bg-[#0D3B66] text-gray-200 flex">
           <Navbar />
           <div className="w-full overflow-x-auto">
             {children}
